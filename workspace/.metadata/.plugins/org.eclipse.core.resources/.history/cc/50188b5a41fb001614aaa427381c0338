@@ -20,17 +20,10 @@ import org.w3c.dom.Document;
 */
 public class Geocode
 {
-	
-	
-	public Geocode()
-	{
-		
-	}
-	
                 /**
   @throws Exception
                  **/
-public static void getCoordinates(String[] locations) throws Exception
+public void getCoordinates(String[] locations) throws Exception
 {
                 File file = new File("C:\\Users\\Jeff Yokup\\Desktop\\DesktopHere\\something.txt");
                 PrintWriter n = new PrintWriter(file);

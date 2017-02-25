@@ -1,0 +1,15 @@
+import java.io.IOException;
+
+public class mainClass {
+
+	public static void main(String[] args) throws Exception
+	{
+		WebScraper jeff = new WebScraper("http://www.reuters.com/article/us-mideast-crisis-syria-un-russia-idUSKBN16324L");
+		String html = jeff.getHTML();
+		LocationFinder Tyler = new LocationFinder(html);
+		String[] arr = Tyler.getLocations();
+		Geocode Paul = new Geocode();
+		Paul.getCoordinates(arr);
+		System.out.println("Finished Execution");
+	}
+}

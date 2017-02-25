@@ -20,13 +20,6 @@ import org.w3c.dom.Document;
 */
 public class Geocode
 {
-	
-	
-	public Geocode()
-	{
-		
-	}
-	
                 /**
   @throws Exception
                  **/
