@@ -1,0 +1,15 @@
+import java.io.IOException;
+
+public class tester {
+
+	public static void main(String[] args) throws ClassCastException, ClassNotFoundException, IOException
+	{
+		WebScraper ws = new WebScraper("http://money.cnn.com/2017/02/24/media/cnn-blocked-white-house-gaggle/index.html");
+		LocationFinder loc = new LocationFinder(ws.getHTML());
+		String[] temparr = loc.getLocations();
+		for(int i = 0; i < temparr.length;i++)
+		{
+			System.out.println(temparr[i]);
+		}
+	}
+}

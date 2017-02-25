@@ -1,0 +1,16 @@
+import java.io.IOException;
+
+public class tester {
+
+	public static void main(String[] args) throws ClassCastException, ClassNotFoundException, IOException
+	{
+		LocationFinder loc = new LocationFinder("<meta property=og:description content=U.S. President Donald Trump's push against Islamic State in Syria could present him with an unenviable choice: Alienate NATO ally Turkey by relying on Kurdish fighters or adopt a plan that may slow the assault and require many more U.S. combat forces.>");
+		String[] temparr = loc.getLocations();
+		for(int i = 0; i < temparr.length;i++)
+		{
+			System.out.println(temparr[i]);
+		}
+		
+	}
+	
+}

@@ -2,15 +2,17 @@ import java.io.IOException;
 
 public class tester {
 
-	public static void main(String[] args) throws ClassCastException, ClassNotFoundException, IOException
+	public static void main(String[] args) throws Exception
 	{
-		LocationFinder loc = new LocationFinder("This is a test in the U.S . But it could be done in Syria or even Italy");
-		String[] temparr = loc.getLocations();
-		for(int i = 0; i < temparr.length;i++)
-		{
-			System.out.println(temparr[i]);
-		}
-		
+//		WebScraper ws = new WebScraper("http://www.cnn.com/2017/02/23/europe/sweden-trump-refugees-integration/index.html");
+//		LocationFinder loc = new LocationFinder(ws.getHTML());
+//		String[] temparr = loc.getLocations();
+//		for(int i = 0; i < temparr.length;i++)
+//		{
+//			System.out.println(temparr[i]);
+//		}
+		                                Geocode g = new Geocode();
+		                                String[] s = {"Paris", "Berlin", "klajsfdlkasdhflkajdshflkasjdhfklasjdfhlkasdjfnsdmv sdklanfksjadfsaklmdfnsakldfnsalkdjfhlskafusaluflksadhfjkdsfnsdkfnsalfdh"};
+		                                g.getCoordinates(s);
 	}
-	
 }

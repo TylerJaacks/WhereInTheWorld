@@ -1,0 +1,14 @@
+import java.io.IOException;
+
+public class tester {
+
+	public static void main(String[] args) throws ClassCastException, ClassNotFoundException, IOException
+	{
+		LocationFinder loc = new LocationFinder(new WebScraper("https://www.nytimes.com/2017/02/24/world/europe/sweden-nation-of-open-arms-debates-implications-of-immigration.html?action=click&contentCollection=world&region=rank&module=package&version=highlights&contentPlacement=1&pgtype=sectionfront").getHTML());
+		String[] temparr = loc.getLocations();
+		for(int i = 0; i < temparr.length;i++)
+		{
+			System.out.println(temparr[i]);
+		}
+	}
+}
