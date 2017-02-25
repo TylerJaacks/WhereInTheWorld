@@ -6,14 +6,11 @@ public class tester {
 	public static void main(String[] args) throws Exception
 	{
 		WebScraper ws = new WebScraper("http://www.reuters.com/article/us-mideast-crisis-syria-un-russia-idUSKBN16324L");
-		String[] html = ws.getHTML();
-		int count = 0;
-		for(int i = 0; i < html.length;i++)
+		ArrayList<String> html = ws.getHTML();
+		for(int i = 0; i < html.size();i++)
 		{
-			count++;
-			System.out.println(html[i]);
+			System.out.println(html.get(i));
 		}
-		System.out.println(count + "!!!");
 //		LocationFinder loc = new LocationFinder(ws.getHTML());
 //		String[] temparr = loc.getLocations();
 //		for(int i = 0; i < temparr.length;i++)

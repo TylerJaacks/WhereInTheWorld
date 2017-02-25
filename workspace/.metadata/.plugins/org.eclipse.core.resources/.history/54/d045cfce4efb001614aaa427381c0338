@@ -4,7 +4,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Scanner;
 
 public class WebScraper {
 	
@@ -19,12 +18,11 @@ public class WebScraper {
 	{
 		String html = null;
 		 URL oracle = new URL(url);
-	        Scanner in = new Scanner(
+	        BufferedReader in = new BufferedReader(
 	        new InputStreamReader(oracle.openStream()));
-	        
+
 	        String inputLine = "";
-	        while (in.hasNext())
-	        	inputLine += in.next();
+	        while ((inputLine = in.readLine()) != null)
 	            html+=inputLine;
 	        in.close();
 		return html;

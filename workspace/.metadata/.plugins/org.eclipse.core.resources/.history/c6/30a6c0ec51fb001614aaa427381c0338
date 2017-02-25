@@ -7,13 +7,10 @@ public class tester {
 	{
 		WebScraper ws = new WebScraper("http://www.reuters.com/article/us-mideast-crisis-syria-un-russia-idUSKBN16324L");
 		String[] html = ws.getHTML();
-		int count = 0;
 		for(int i = 0; i < html.length;i++)
 		{
-			count++;
 			System.out.println(html[i]);
 		}
-		System.out.println(count + "!!!");
 //		LocationFinder loc = new LocationFinder(ws.getHTML());
 //		String[] temparr = loc.getLocations();
 //		for(int i = 0; i < temparr.length;i++)

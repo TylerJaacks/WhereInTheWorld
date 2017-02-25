@@ -1,0 +1,43 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+
+public class WebScraper {
+	
+	String url;
+	
+	public WebScraper(String url)
+	{
+		this.url = url;
+	}
+	
+	public String[] getHTML() throws IOException
+	{
+		//String html = null;
+		String[] temparr;
+		ArrayList<String> arr = new ArrayList<String>();
+		 URL oracle = new URL(url);
+	        BufferedReader in = new BufferedReader(
+	        new InputStreamReader(oracle.openStream()));
+
+	        String inputLine = "";
+	        int count = 0;
+	        while ((inputLine = in.readLine()) != null)
+	        {	        	
+	        	count++;
+	        	arr.add(inputLine);
+	        }
+	           // html+=inputLine;
+	        temparr = new String[count];
+	        for(int i = 0; i < temparr.length;i++)
+	        {
+	        	temparr[i] = arr.get(i);
+	        }
+	        in.close();
+		return temparr;
+	}
+	}
+	
+

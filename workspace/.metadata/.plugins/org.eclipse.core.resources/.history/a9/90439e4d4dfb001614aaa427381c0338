@@ -18,14 +18,13 @@ public class mainClass {
 			String html = jeff.getHTML();
 			System.out.println("Retrieved HTML");
 			LocationFinder Tyler = new LocationFinder(html);
-			System.out.println("Created Location Finder");
+			System.out.println("Creaded Location FInder");
 			String[] arr = Tyler.getLocations();
 			System.out.println("Received Locations");
 			Geocode Paul = new Geocode();
 			Paul.getCoordinates(arr);
 			System.out.println("Got coordinates");
 			System.out.println("Finished URL #" + count);
-			System.out.println();
 			count++;
 		}
 		scan.close();

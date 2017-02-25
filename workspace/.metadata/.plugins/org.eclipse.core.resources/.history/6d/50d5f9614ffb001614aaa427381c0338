@@ -24,7 +24,7 @@ public class WebScraper {
 	        
 	        String inputLine = "";
 	        while (in.hasNext())
-	        	inputLine += in.next();
+	        	inputLine = in.next();
 	            html+=inputLine;
 	        in.close();
 		return html;

@@ -6,8 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileWriter;
-
+ 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -34,7 +33,7 @@ public class Geocode
 public static void getCoordinates(String[] locations) throws Exception
 {
                 File file = new File("C:\\Users\\Jeff Yokup\\Desktop\\DesktopHere\\something.txt");
-                PrintWriter n = new PrintWriter(new FileWriter(file,true));
+                PrintWriter n = new PrintWriter(file);
                 String output = "";
                 for(int i = 0; i < locations.length; i++)
                 {
