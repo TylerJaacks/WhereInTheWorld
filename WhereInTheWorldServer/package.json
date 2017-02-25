@@ -1,0 +1,11 @@
+{
+  "name": "whereintheworld",
+  "version": "1.0.0",
+  "description": "Server for WhereInTheWorld",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tyler Jaacks",
+  "license": "ISC"
+}
