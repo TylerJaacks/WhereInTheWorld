@@ -1,51 +1,86 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Where In The World!</title>
+   <head>
+      <title>Where In The World!</title>
 
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
+      <meta name="viewport" content="initial-scale=1.0">
+      <meta charset="utf-8">
 
-    <script src="index.js"></script>
+      <style>
+         #map {
+           height: 75%;
+         }
+         html, body {
+           height: 100%;
+           margin: 0;
+           padding: 0;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="map"></div>
 
-    <!-- Google Maps Style -->
-    <style>
-        #map {
-            height: 75%;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-  </head>
-  <body>
-    <!-- Google Maps Div Element -->
-    <div id="map"></div>
-    
-    <!-- File Uploader -->
-    <input type='file' accept='text/json' onchange='openFile(event)'><br>
-    <div id='output'>
+      <input type='file' accept='text/json' onchange='openFile(event)'><br>
+      <div id='output'>
 
-    <!-- Google Maps Script -->
-    <script>
-      var map;
+      <script>
+         var map;
+         var markers = []
+         var lats = []
+         var longs = []
+         var articles = []
+         var jsonString = ""
+         
+         var openFile = function(event) {
+         var input = event.target;
+         var reader = new FileReader()
+           
+         reader.onload = function() {
+            var text = reader.result;
+            var node = document.getElementById('output')
+             
+            node.innerText = text;
+         
+            jsonString = reader.result;    
+         
+            var jsonObject = JSON.parse(jsonString);
+         
+            for (var i = 0; i < jsonObject.lats.length; i++) { 
+                lats[i] = jsonObject.lats[i]
+                console.log(lats[i]); 
+            }
+         
+            for (var i = 0; i < jsonObject.longs.length; i++) { 
+               longs[i] = jsonObject.longs[i]
+               console.log(longs[i]); 
+            }
+         
+            for (var i = 0; i < jsonObject.articles.length; i++) { 
+               articles[i] = jsonObject.articles[i]
+               console.log(articles[i]); 
+            }
 
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
+            for (var i = 0; i < lats.length; i++) {
+             markers[i] = new google.maps.Marker({
+                position: new google.maps.LatLng(lats[i], longs[i]),
+                map: map,
+                //title: articles[i]
+             });
+           }
+          };
+         
+         reader.readAsText(input.files[0])
+        };
+        
+        function initMap() {
+           map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: 33.50, lng: -40.00},
+              zoom: 3,
+              mapTypeId: 'hybrid',
+           });
+         }
+      </script>
 
-        var marker = new google.maps.Marker({
-          position: new google.maps.LatLng(34.0, -76),
-          map: map,
-          title: 'Hello World!'
-        });
-      }
-    </script>
-    
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6ngIsyBuiDXm-hpfPorWdIucdCTuwWIg&callback=initMap" async defer></script>
-  </body>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6ngIsyBuiDXm-hpfPorWdIucdCTuwWIg&callback=initMap" async defer></script>
+   </body>
 </html>
