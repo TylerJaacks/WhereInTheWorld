@@ -25,12 +25,12 @@ public class WebScraper {
 	        String inputLine = "";
 	        while ((inputLine = br.readLine()) != null)
 	        {
-	        	html += inputLine;
+	        	inputLine += inputLine;
 	        }
-	        br.close();
+	            html+=inputLine;
+	        in.close();
 		return html;
-	
 	}
-}
+	}
 	
 

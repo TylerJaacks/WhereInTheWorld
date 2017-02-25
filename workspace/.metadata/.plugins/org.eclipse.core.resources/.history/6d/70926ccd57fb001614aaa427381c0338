@@ -19,18 +19,16 @@ public class WebScraper {
 	{
 		String html = null;
 		 URL oracle = new URL(url);
-		 BufferedReader br = new BufferedReader(
+	        Scanner in = new Scanner(
 	        new InputStreamReader(oracle.openStream()));
 	        
 	        String inputLine = "";
-	        while ((inputLine = br.readLine()) != null)
-	        {
-	        	html += inputLine;
-	        }
-	        br.close();
+	        while (in.hasNext())
+	        	inputLine += in.next();
+	            html+=inputLine;
+	        in.close();
 		return html;
-	
 	}
-}
+	}
 	
 

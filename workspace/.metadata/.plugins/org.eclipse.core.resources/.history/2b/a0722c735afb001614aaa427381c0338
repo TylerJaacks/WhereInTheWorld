@@ -38,7 +38,7 @@ public static void getCoordinates(String[] locations) throws Exception
                 String output = "";
                 for(int i = 0; i < locations.length; i++)
                 {
-                                 output = "";
+                                output = "";
                                 String temp[] = getLatLongPositions(locations[i]);
                                 if(temp != null)
                                 {
@@ -46,9 +46,9 @@ public static void getCoordinates(String[] locations) throws Exception
                                                 output += temp[0];
                                                 output += " ";
                                                 output += temp[1];
-                                                n.println("");
                                 }
-                                n.write(output);  
+                                n.write(output);
+                                n.println("");
                 }
                
                 n.close();

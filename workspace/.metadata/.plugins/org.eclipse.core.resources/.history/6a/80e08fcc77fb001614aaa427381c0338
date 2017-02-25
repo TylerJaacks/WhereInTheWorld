@@ -34,7 +34,8 @@ public class Geocode
 public static void getCoordinates(String[] locations) throws Exception
 {
                 File file = new File("C:\\Users\\Jeff Yokup\\Desktop\\WhereInTheWorld\\MapsCordinates.txt");
-                PrintWriter n = new PrintWriter(new FileWriter(file,true));
+                //PrintWriter n = new PrintWriter(new FileWriter(file,true));
+                PrintWriter n = new PrintWriter(file);
                 String output = "";
                 for(int i = 0; i < locations.length; i++)
                 {
