@@ -54,17 +54,12 @@
                longs[i] = jsonObject.longs[i]
                console.log(longs[i]); 
             }
-         
-            for (var i = 0; i < jsonObject.articles.length; i++) { 
-               articles[i] = jsonObject.articles[i]
-               console.log(articles[i]); 
-            }
 
-            for (var i = 0; i < lats.length; i++) {
+            for (var i = 0; i < jsonObject.longs.length; i++) {
              markers[i] = new google.maps.Marker({
                 position: new google.maps.LatLng(lats[i], longs[i]),
                 map: map,
-                //title: articles[i]
+                title: "Hello, world!"
              });
            }
           };
