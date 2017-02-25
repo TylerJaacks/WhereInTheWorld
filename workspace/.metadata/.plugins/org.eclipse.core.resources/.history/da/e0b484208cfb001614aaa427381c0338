@@ -1,0 +1,44 @@
+package jasonTest;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.text.ParseException;
+
+import javax.swing.text.html.parser.Parser;
+
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
+
+public class JasonWriter
+{
+	/**
+	 * Takes two String arrays of longitude and lattitude and then
+	 * converts them into a jasonFile
+	 * @param coordinates - 
+	 * @param location - The location of where to print the Jason file
+	 * @throws IOException 
+	 */
+	public void JSWriter(String[] coordinates, String location) throws IOException{
+		//JSON Object to be exploited for the duration of this class
+		JSONObject obj = new JSONObject();
+		JSONArray longs = new JSONArray();
+		JSONArray lats = new JSONArray();
+
+		for(int i = 0; i < coordinates.length / 2; i ++){
+			lats.add(Double.parseDouble(coordinates[2 * i]));
+			longs.add(Double.parseDouble(coordinates[2 * i + 1]));
+		}
+		
+		obj.put("lats", lats);
+		obj.put("longs", longs);
+
+		try(FileWriter file = new FileWriter(location)){
+			file.write(obj.toJSONString());
+			file.flush();
+		}catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		System.out.println(obj);
+	}
+}
